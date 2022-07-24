@@ -10,66 +10,54 @@ import SwiftUI
 struct ContentView: View {
     
     // TODO: feature-plan
-    /**  1. Start up Git repo with a better name
-         2. Half sheet to adjust settings and toggle save-mode
-         3. When keyboard is down, turn off text field and turn on Text view
-         4. Quick responses
-         5. Preset phrases to quick-access
-         6. Color customization/themes
-         7. Persistence for save mode and saved view in the settings half-sheet
+    /**
+     * 4. Quick responses
+     * 5. Preset phrases to quick-access
+     * 6. Color customization/themes
+     * 7. Persistence for save mode + more information in saved mode (detail view on tap that shows time saved and location?)
+     * 8. Onboarding
+     * 9. Refactor reused components to custom views and view modifiers
+     * 10. Create monospaced and rounded modifiers for more friendly look (a la Jordan Morgan and Daniel Gauthier) [https://twitter.com/jordanmorgan10/status/1551001602168872960?s=21&t=YWZ6rlsog8oDesb0Sau35Q]
      */
     
-    @State var text = ""
-    @State var size = 24.0
-    @FocusState var keyboardUp: Bool
+    @StateObject var vm = TextVM()
+    @StateObject var settings = SettingsModel()
+    @State var saved = [String]()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
-                if text.isEmpty {
-                    Spacer()
-                }
-                
                 ScrollView {
-                        TextField("Type here ...", text: $text, axis: .vertical)
-                            .font(.system(size: size))
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                            .focused($keyboardUp)
+                    EditingField(saved: $saved, vm: vm, settings: settings) // TODO: extract view model
                 }
-                
-                if text.isEmpty {
-                    Spacer()
-                }
-                
-                Slider(value: $size, in: 12...144)
             }
             .padding()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-//                    if keyboardUp {
-                        Button {
-                            keyboardUp = false
-                        } label: {
-                            Label("Done", systemImage: "keyboard.chevron.compact.down")
-                                .labelStyle(.titleAndIcon)
-                        }
-//                    }
+                    Button {
+                        vm.sheet = .saved
+                    } label: {
+                        Label("Saved", systemImage: "tray.and.arrow.down")
+                            .labelStyle(.titleAndIcon)
+                    }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-//                    if !text.isEmpty {
-                        Button {
-                            text = ""
-                        } label: {
-                            Label("Clear", systemImage: "trash")
-                                .labelStyle(.titleAndIcon)
-                        }
-//                    }
-                    
+                    Button {
+                        vm.sheet = .settings
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                            .labelStyle(.titleAndIcon)
+                    }
                 }
             }
-            .task {
-                keyboardUp = true
+        }
+        .sheet(item: $vm.sheet) { sheetType in
+            switch sheetType {
+                case SheetType.settings:
+                    SettingsSheet(settings: settings).presentationDetents([.medium, .large])
+                case SheetType.saved:
+                    SavedSheet(saved: $saved).presentationDetents([.medium, .large])
             }
         }
     }
