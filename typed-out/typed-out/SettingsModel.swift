@@ -10,5 +10,4 @@ import Foundation
 class SettingsModel: ObservableObject {
     @Published var textSize = 24.0
     @Published var saveMode = false
-    // TODO: add other settings here
 }

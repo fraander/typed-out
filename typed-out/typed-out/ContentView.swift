@@ -28,7 +28,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    EditingField(saved: $saved, vm: vm, settings: settings) // TODO: extract view model
+                    EditingField(saved: $saved, vm: vm, settings: settings)
                 }
             }
             .padding()
