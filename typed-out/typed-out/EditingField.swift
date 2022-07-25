@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditingField: View {
     @FocusState var focus: Bool
-    @Binding var saved: [String]
+    @Binding var saved: [SaveItem]
     @ObservedObject var vm: TextVM
     @ObservedObject var settings: SettingsModel
     
@@ -23,7 +23,8 @@ struct EditingField: View {
                     
                     Button {
                         if settings.saveMode {
-                            saved.append(vm.text)
+                            let newItem = SaveItem(text: vm.text)
+                            saved.append(newItem)
                         }
                         
                         vm.text = ""

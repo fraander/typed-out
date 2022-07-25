@@ -18,6 +18,7 @@ struct SettingsSheet: View {
                 HStack {
                     Label("Settings", systemImage: "gear")
                         .font(.system(Font.TextStyle.largeTitle, design: .rounded, weight: .bold))
+                        .foregroundStyle(Color.accentColor)
                     
                     Spacer()
                     
@@ -27,7 +28,8 @@ struct SettingsSheet: View {
                         Label("Done", systemImage: "checkmark")
                             .labelStyle(.automatic)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.bordered)
+                    .tint(Color.accentColor)
                 }
                 
                 GroupBox("Font Size") {
@@ -56,11 +58,11 @@ struct SettingsSheet: View {
                 
                 GroupBox {
                     Toggle(isOn: $settings.saveMode) {
-                        VStack(alignment: .leading, spacing: 0) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text("Save Mode")
                                 .font(.headline)
                             Text("Save each message that is typed.")
-                                .font(.caption)
+                                .font(.system(.caption, design: .monospaced))
                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                         }
                     }
