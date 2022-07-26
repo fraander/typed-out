@@ -36,8 +36,21 @@ struct SavedSheet: View {
                 Text("Your saved messages will appear here.")
                 Spacer()
             } else {
-                List($saved, edits: [.delete, .move]) { $item in
-                    Text(item.text)
+                List($saved, edits: [.delete]) { $item in
+                    HStack {
+                        Text(item.text)
+                        
+                        Spacer()
+                        
+                        Text(item.date
+                            .formatted(
+                                date: Date.FormatStyle.DateStyle.omitted,
+                                time: Date.FormatStyle.TimeStyle.shortened)
+                             )
+                        .foregroundColor(Color.secondary)
+                        .font(.system(.caption, design: .monospaced, weight: .regular))
+                        .italic()
+                    }
                 }
                 
             }
@@ -47,6 +60,6 @@ struct SavedSheet: View {
 
 struct SavedSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SavedSheet(saved: .constant([SaveItem(text: "first"), SaveItem(text: "second")]))
+        SavedSheet(saved: .constant([SaveItem(text: "first"), SaveItem(text: "second"), SaveItem(text: "this is a really long message that is supposed to show what happens when you just keep typing and don't stop. It looks liek this actually scales just fine for now.")]))
     }
 }
