@@ -21,7 +21,8 @@ struct ContentView: View {
     
     @StateObject var vm = TextVM()
     @StateObject var settings = SettingsVM()
-    @State var saved = [SaveItem]()
+    @StateObject var saved = SavedVM()
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         NavigationView {
@@ -31,7 +32,7 @@ struct ContentView: View {
                     
                     ScrollView {
                         
-                        EditingField(saved: $saved, vm: vm, settings: settings)
+                        EditingField(saved: $saved.items, vm: vm, settings: settings)
                     }
                 }
                 .onTapGesture {
@@ -85,7 +86,8 @@ struct ContentView: View {
                             .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
-                    .tint(Color.cyan)
+                    .tint(settings.saveMode ? Color.cyan : Color.gray)
+                    .foregroundColor(Color.cyan)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -106,7 +108,29 @@ struct ContentView: View {
                 case SheetType.settings:
                     SettingsSheet(settings: settings).presentationDetents([.medium, .large])
                 case SheetType.saved:
-                    SavedSheet(saved: $saved).presentationDetents([.medium, .large])
+                    SavedSheet(saved: saved, settings: settings).presentationDetents([.medium, .large])
+            }
+        }
+        .task {
+            SavedVM.load { result in
+                switch result {
+                    case .failure(let error):
+                        fatalError(error.localizedDescription)
+                    case .success(let items):
+                        saved.items = items
+                }
+            }
+        }
+        .onChange(of: scenePhase) { phase in
+            if (phase == .inactive) {
+                SavedVM.save(items: saved.items) { result in
+                    switch result {
+                        case .failure(let e):
+                            print(e.localizedDescription)
+                        case .success(_):
+                            print("Saved \(saved.items.count) item(s)")
+                    }
+                }
             }
         }
     }

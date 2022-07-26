@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SaveItem: Identifiable, Hashable {
+struct SaveItem: Identifiable, Hashable, Equatable, Codable {
     var id: UUID
     var text: String
     var date: Date
@@ -16,5 +16,9 @@ struct SaveItem: Identifiable, Hashable {
         self.id = UUID()
         self.date = Date()
         self.text = text
+    }
+    
+    static func == (lhs: SaveItem, rhs: SaveItem) -> Bool {
+        return lhs.id == rhs.id
     }
 }
