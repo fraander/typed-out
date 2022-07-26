@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD067DCA288DE96700704A87 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DC9288DE96700704A87 /* SettingsModel.swift */; };
+		BD067DCA288DE96700704A87 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DC9288DE96700704A87 /* SettingsVM.swift */; };
 		BD067DCC288DF17000704A87 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCB288DF17000704A87 /* SettingsSheet.swift */; };
 		BD067DCE288E00F000704A87 /* SavedSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCD288E00F000704A87 /* SavedSheet.swift */; };
 		BD067DD0288E011400704A87 /* EditingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCF288E011400704A87 /* EditingField.swift */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BD067DC9288DE96700704A87 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		BD067DC9288DE96700704A87 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		BD067DCB288DF17000704A87 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		BD067DCD288E00F000704A87 /* SavedSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSheet.swift; sourceTree = "<group>"; };
 		BD067DCF288E011400704A87 /* EditingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingField.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 				BD92F642288D36CA001D142D /* ContentView.swift */,
 				BDB5BCB4288F26E30061344B /* SaveItem.swift */,
 				BD067DCF288E011400704A87 /* EditingField.swift */,
-				BD067DC9288DE96700704A87 /* SettingsModel.swift */,
+				BD067DC9288DE96700704A87 /* SettingsVM.swift */,
 				BD92F644288D36CB001D142D /* Assets.xcassets */,
 				BD92F646288D36CB001D142D /* typed_out.entitlements */,
 				BD92F647288D36CB001D142D /* Preview Content */,
@@ -158,7 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD067DCC288DF17000704A87 /* SettingsSheet.swift in Sources */,
-				BD067DCA288DE96700704A87 /* SettingsModel.swift in Sources */,
+				BD067DCA288DE96700704A87 /* SettingsVM.swift in Sources */,
 				BD92F643288D36CA001D142D /* ContentView.swift in Sources */,
 				BD92F641288D36CA001D142D /* typed_outApp.swift in Sources */,
 				BD067DCE288E00F000704A87 /* SavedSheet.swift in Sources */,

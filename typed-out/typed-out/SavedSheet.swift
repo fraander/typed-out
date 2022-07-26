@@ -14,11 +14,8 @@ struct SavedSheet: View {
     var body: some View {
         VStack {
             HStack {
-                GroupBox {
-                    Label("Saved", systemImage: "tray.and.arrow.down")
-                        .font(.system(Font.TextStyle.largeTitle, design: .rounded, weight: .bold))
-                        .foregroundStyle(Color.cyan)
-                }
+                Label("Saved", systemImage: "tray.and.arrow.down")
+                    .font(.system(Font.TextStyle.largeTitle, design: .rounded, weight: .bold))
                 
                 Spacer()
                 
@@ -26,9 +23,11 @@ struct SavedSheet: View {
                     dismiss()
                 } label: {
                     Label("Done", systemImage: "checkmark")
-                        .labelStyle(.automatic)
+                        .labelStyle(.titleAndIcon)
+                        .font(.system(.body, design: .monospaced, weight: .bold))
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
+                .tint(Color.accentColor)
             }
             .padding()
             

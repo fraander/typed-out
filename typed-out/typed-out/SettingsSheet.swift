@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsSheet: View {
     
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var settings: SettingsModel
+    @ObservedObject var settings: SettingsVM
     
     var body: some View {
         ScrollView {
@@ -18,7 +18,6 @@ struct SettingsSheet: View {
                 HStack {
                     Label("Settings", systemImage: "gear")
                         .font(.system(Font.TextStyle.largeTitle, design: .rounded, weight: .bold))
-                        .foregroundStyle(Color.accentColor)
                     
                     Spacer()
                     
@@ -26,7 +25,8 @@ struct SettingsSheet: View {
                         dismiss()
                     } label: {
                         Label("Done", systemImage: "checkmark")
-                            .labelStyle(.automatic)
+                            .labelStyle(.titleAndIcon)
+                            .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
                     .tint(Color.accentColor)
@@ -39,7 +39,7 @@ struct SettingsSheet: View {
                                 .strokeBorder(.secondary, lineWidth: 2)
                             
                             Text("This is what your text will look like.")
-                                .font(.system(size: settings.textSize))
+                                .font(.system(size: settings.textSize, weight: .semibold, design: .rounded))
                                 .lineLimit(2)
                                 .padding(8)
                         }
@@ -75,6 +75,6 @@ struct SettingsSheet: View {
 
 struct SettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsSheet(settings: SettingsModel())
+        SettingsSheet(settings: SettingsVM())
     }
 }

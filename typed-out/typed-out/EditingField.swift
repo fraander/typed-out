@@ -11,11 +11,11 @@ struct EditingField: View {
     @FocusState var focus: Bool
     @Binding var saved: [SaveItem]
     @ObservedObject var vm: TextVM
-    @ObservedObject var settings: SettingsModel
+    @ObservedObject var settings: SettingsVM
     
     var body: some View {
         TextField("Type here ...", text: $vm.text, axis: .vertical)
-            .font(.system(size: settings.textSize))
+            .font(.system(size: settings.textSize, weight: .semibold, design: .rounded))
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .focused($focus)
             .toolbar {
@@ -46,5 +46,11 @@ struct EditingField: View {
                 }
             }
             .task { focus = true }
+    }
+}
+
+struct EditingField_Previews: PreviewProvider {
+    static var previews: some View {
+        EditingField(saved: .constant([]), vm: TextVM(), settings: SettingsVM())
     }
 }

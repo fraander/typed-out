@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SettingsModel: ObservableObject {
+class SettingsVM: ObservableObject {
     @Published var textSize = 24.0
-    @Published var saveMode = false
+    @Published var saveMode = true
 }

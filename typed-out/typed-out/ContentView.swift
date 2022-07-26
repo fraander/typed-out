@@ -21,7 +21,7 @@ struct ContentView: View {
      */
     
     @StateObject var vm = TextVM()
-    @StateObject var settings = SettingsModel()
+    @StateObject var settings = SettingsVM()
     @State var saved = [SaveItem]()
     
     var body: some View {
@@ -33,6 +33,7 @@ struct ContentView: View {
                 }
                 
                 // TODO: make the quick responses do stuff
+                /*
                 HStack(spacing: 4) {
                     
                     Button { } label: {
@@ -65,6 +66,7 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                     .tint(Color.pink)
                 }
+                 */
             }
             .padding()
             .toolbar {
