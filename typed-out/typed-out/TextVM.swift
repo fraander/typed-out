@@ -16,4 +16,5 @@ enum SheetType: Identifiable {
 class TextVM: ObservableObject {
     @Published var text = ""
     @Published var sheet: SheetType?
+    @Published var focus: Bool = false
 }

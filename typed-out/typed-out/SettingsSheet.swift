@@ -39,7 +39,7 @@ struct SettingsSheet: View {
                                 .strokeBorder(.secondary, lineWidth: 2)
                             
                             Text("This is what your text will look like.")
-                                .font(.system(size: settings.textSize, weight: .semibold, design: .rounded))
+                                .font(.system(size: settings.textSize, weight: .medium, design: .rounded))
                                 .lineLimit(2)
                                 .padding(8)
                         }
