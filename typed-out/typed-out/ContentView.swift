@@ -32,7 +32,7 @@ struct ContentView: View {
                     
                     ScrollView {
                         
-                        EditingField(saved: $saved.items, vm: vm, settings: settings)
+                        EditingField(saved: saved, vm: vm, settings: settings)
                     }
                 }
                 .onTapGesture {

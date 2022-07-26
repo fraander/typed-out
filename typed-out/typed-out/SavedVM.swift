@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import Combine
 
 class SavedVM: ObservableObject, Equatable, Codable {
     
     @Published var items: [SaveItem]
+    private var saveSubscription: AnyCancellable?
     
-    init(_ items: [SaveItem] = []) { self.items = [] }
+    init(_ items: [SaveItem] = []) {
+        self.items = []
+    }
+    
+    
     
     // MARK: - Codable conformance
     private enum CodingKeys : String, CodingKey {

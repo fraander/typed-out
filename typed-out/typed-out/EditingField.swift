@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditingField: View {
-    @Binding var saved: [SaveItem]
+    @ObservedObject var saved: SavedVM
     @ObservedObject var vm: TextVM
     @ObservedObject var settings: SettingsVM
     @FocusState var focus: Bool
@@ -24,7 +24,16 @@ struct EditingField: View {
                     Button {
                         if settings.saveMode {
                             let newItem = SaveItem(text: vm.text)
-                            saved.append(newItem)
+                            saved.items.append(newItem)
+                            
+                            SavedVM.save(items: saved.items) { result in
+                                switch result {
+                                    case .failure(let e):
+                                        print(e.localizedDescription)
+                                    case .success(_):
+                                        print("Saved on purpose. \(saved.items.count) items(s)")
+                                }
+                            }
                         }
                         
                         vm.text = ""
@@ -43,12 +52,12 @@ struct EditingField: View {
                     Button {
                         focus = false
                     } label: {
-                        Label("Done", systemImage: "checkmark")
-                            .labelStyle(.titleAndIcon)
+                        Label("Done", systemImage: "keyboard.chevron.compact.down")
+                            .labelStyle(.iconOnly)
                             .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
-                    .tint(Color.mint)
+                    .tint(Color.secondary)
                 }
             }
             .task { focus = true }
@@ -63,7 +72,7 @@ struct EditingField: View {
 
 struct EditingField_Previews: PreviewProvider {
     static var previews: some View {
-        EditingField(saved: .constant([]), vm: TextVM(), settings: SettingsVM())
+        EditingField(saved: SavedVM(), vm: TextVM(), settings: SettingsVM())
             .padding()
             .previewLayout(.sizeThatFits)
     }

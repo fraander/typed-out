@@ -14,7 +14,7 @@ struct SavedSheet: View {
     @ObservedObject var settings: SettingsVM
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 Label("Saved", systemImage: "tray.and.arrow.down")
                     .font(.system(Font.TextStyle.largeTitle, design: .rounded, weight: .bold))
@@ -59,21 +59,31 @@ struct SavedSheet: View {
                     }
                 }
                 
-            }
-            
-            HStack {
-                Button {
-                    saved.items = []
-                } label: {
-                    Label("Clear", systemImage: "trash").labelStyle(.titleAndIcon)
-                        .font(.system(.body, design: .monospaced, weight: .bold))
-                }
-                .buttonStyle(.bordered)
-                .tint(Color.pink)
+                Divider()
                 
-                Spacer()
+                HStack {
+                    Button {
+                        saved.items = []
+                        
+                        SavedVM.save(items: saved.items) { result in
+                            switch result {
+                                case .failure(let e):
+                                    print(e.localizedDescription)
+                                case .success(_):
+                                    print("Saved the clear")
+                            }
+                        }
+                    } label: {
+                        Label("Clear", systemImage: "trash").labelStyle(.titleAndIcon)
+                            .font(.system(.body, design: .monospaced, weight: .bold))
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(Color.pink)
+                    
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
         }
         .onChange(of: scenePhase) { phase in
             if (phase == .inactive) {
