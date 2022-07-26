@@ -18,6 +18,7 @@ struct SettingsSheet: View {
                 HStack {
                     Label("Settings", systemImage: "gear")
                         .font(.system(Font.TextStyle.largeTitle, design: .rounded, weight: .bold))
+                        .foregroundStyle(.indigo)
                     
                     Spacer()
                     
@@ -29,7 +30,7 @@ struct SettingsSheet: View {
                             .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
-                    .tint(Color.accentColor)
+                    .tint(Color.mint)
                 }
                 
                 GroupBox("Font Size") {
@@ -46,6 +47,7 @@ struct SettingsSheet: View {
                         .frame(height: 120)
                         
                         Slider(value: $settings.textSize, in: 12...96)
+                            .tint(Color.indigo)
                     }
                 }
                 
@@ -66,6 +68,7 @@ struct SettingsSheet: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                         }
                     }
+                    .tint(Color.indigo)
                 }
             }
             .padding()

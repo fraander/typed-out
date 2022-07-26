@@ -16,6 +16,7 @@ struct SavedSheet: View {
             HStack {
                 Label("Saved", systemImage: "tray.and.arrow.down")
                     .font(.system(Font.TextStyle.largeTitle, design: .rounded, weight: .bold))
+                    .foregroundStyle(Color.cyan)
                 
                 Spacer()
                 
@@ -27,13 +28,16 @@ struct SavedSheet: View {
                         .font(.system(.body, design: .monospaced, weight: .bold))
                 }
                 .buttonStyle(.bordered)
-                .tint(Color.accentColor)
+                .tint(Color.mint)
             }
             .padding()
             
             if saved.isEmpty {
                 Spacer()
                 Text("Your saved messages will appear here.")
+                    .font(.system(Font.TextStyle.body, design: .monospaced, weight: .regular))
+                    .multilineTextAlignment(.center)
+                    .padding()
                 Spacer()
             } else {
                 List($saved, edits: [.delete]) { $item in
@@ -54,6 +58,20 @@ struct SavedSheet: View {
                 }
                 
             }
+            
+            HStack {
+                Button {
+                    saved = []
+                } label: {
+                    Label("Clear", systemImage: "trash").labelStyle(.titleAndIcon)
+                        .font(.system(.body, design: .monospaced, weight: .bold))
+                }
+                .buttonStyle(.bordered)
+                .tint(Color.pink)
+                
+                Spacer()
+            }
+            .padding()
         }
     }
 }

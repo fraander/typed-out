@@ -35,7 +35,7 @@ struct EditingField: View {
                         .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
-                    .tint(Color.accentColor)
+                    .tint(Color.pink)
                     .disabled(vm.text.isEmpty)
                     
                     Spacer()
@@ -48,7 +48,7 @@ struct EditingField: View {
                             .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
-                    .tint(Color.accentColor)
+                    .tint(Color.mint)
                 }
             }
             .task { focus = true }

@@ -85,7 +85,7 @@ struct ContentView: View {
                             .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
-                    .tint(Color.accentColor)
+                    .tint(Color.cyan)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -97,7 +97,7 @@ struct ContentView: View {
                             .font(.system(.body, design: .monospaced, weight: .bold))
                     }
                     .buttonStyle(.bordered)
-                    .tint(Color.accentColor)
+                    .tint(Color.indigo)
                 }
             }
         }
