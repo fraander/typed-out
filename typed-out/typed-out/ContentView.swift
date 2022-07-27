@@ -14,7 +14,6 @@ struct ContentView: View {
      * 4. Quick responses
      * 5. Preset phrases to quick-access
      * 6. Color customization/themes
-     * 7. Persistence for save mode + more information in saved mode (detail view on tap that shows time saved and location?)
      * 8. Onboarding
      * 9. Refactor reused components to custom views and view modifiers
      */
