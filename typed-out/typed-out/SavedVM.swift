@@ -31,7 +31,12 @@ class SavedVM: ObservableObject, Equatable, Codable {
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        items = try values.decode(Array<SaveItem>.self, forKey: .items)
+        
+        do {
+            items = try values.decode(Array<SaveItem>.self, forKey: .items)
+        } catch {
+            items = []
+        }
     }
     
     // MARK: - Equatable conformance
