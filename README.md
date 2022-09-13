@@ -1,5 +1,5 @@
 # Typed Out
-The app for typing things out when you can't talk but still want to chat
+The app for typing things out when you can't talk but still want to chat.
 
 ## Screenshots
 <p float="left">
