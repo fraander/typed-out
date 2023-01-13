@@ -42,7 +42,7 @@ struct SavedSheet: View {
                     .padding()
                 Spacer()
             } else {
-                List($saved.items, edits: [.delete]) { $item in
+                List($saved.items, editActions: [.delete]) { $item in
                     HStack {
                         Text(item.text)
                         
