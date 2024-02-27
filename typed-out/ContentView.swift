@@ -11,11 +11,8 @@ struct ContentView: View {
     
     // TODO: feature-plan
     /**
-     * 4. Quick responses
-     * 5. Preset phrases to quick-access
-     * 6. Color customization/themes
-     * 8. Onboarding
-     * 9. Refactor reused components to custom views and view modifiers
+     * 1. Color customization/themes
+     * 2. Refactor reused components to custom views and view modifiers
      */
     
     @StateObject var vm = TextVM()
