@@ -13,6 +13,7 @@
 		BD067DD0288E011400704A87 /* EditingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCF288E011400704A87 /* EditingField.swift */; };
 		BD067DD2288E012B00704A87 /* TextVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DD1288E012B00704A87 /* TextVM.swift */; };
 		BD4B14452890A82C00D2FABE /* SavedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B14442890A82C00D2FABE /* SavedVM.swift */; };
+		BD642BF12B8E872D008CC435 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD642BF02B8E872D008CC435 /* ToolbarView.swift */; };
 		BD92F641288D36CA001D142D /* typed_outApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92F640288D36CA001D142D /* typed_outApp.swift */; };
 		BD92F643288D36CA001D142D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92F642288D36CA001D142D /* ContentView.swift */; };
 		BD92F645288D36CB001D142D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD92F644288D36CB001D142D /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		BD067DCF288E011400704A87 /* EditingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingField.swift; sourceTree = "<group>"; };
 		BD067DD1288E012B00704A87 /* TextVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVM.swift; sourceTree = "<group>"; };
 		BD4B14442890A82C00D2FABE /* SavedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVM.swift; sourceTree = "<group>"; };
+		BD642BF02B8E872D008CC435 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		BD92F63D288D36CA001D142D /* typed-out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "typed-out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD92F640288D36CA001D142D /* typed_outApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typed_outApp.swift; sourceTree = "<group>"; };
 		BD92F642288D36CA001D142D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				BD067DCB288DF17000704A87 /* SettingsSheet.swift */,
 				BD92F640288D36CA001D142D /* typed_outApp.swift */,
 				BD92F642288D36CA001D142D /* ContentView.swift */,
+				BD642BF02B8E872D008CC435 /* ToolbarView.swift */,
 				BD4B14442890A82C00D2FABE /* SavedVM.swift */,
 				BDB5BCB4288F26E30061344B /* SaveItem.swift */,
 				BD067DCF288E011400704A87 /* EditingField.swift */,
@@ -166,6 +169,7 @@
 				BD92F641288D36CA001D142D /* typed_outApp.swift in Sources */,
 				BD4B14452890A82C00D2FABE /* SavedVM.swift in Sources */,
 				BD067DCE288E00F000704A87 /* SavedSheet.swift in Sources */,
+				BD642BF12B8E872D008CC435 /* ToolbarView.swift in Sources */,
 				BD067DD0288E011400704A87 /* EditingField.swift in Sources */,
 				BD067DD2288E012B00704A87 /* TextVM.swift in Sources */,
 				BDB5BCB5288F26E30061344B /* SaveItem.swift in Sources */,
@@ -297,11 +301,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -309,7 +315,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "frank.typed-out";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,11 +336,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -341,7 +350,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "frank.typed-out";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

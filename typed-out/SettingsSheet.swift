@@ -22,15 +22,8 @@ struct SettingsSheet: View {
                     
                     Spacer()
                     
-                    Button  {
-                        dismiss()
-                    } label: {
-                        Label("Done", systemImage: "checkmark")
-                            .labelStyle(.titleAndIcon)
-                            .font(.system(.body, design: .monospaced, weight: .bold))
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(Color.mint)
+                    TypedOutButton("Done", icon: "checkmark", tintColor: .mint) { dismiss() }
+                        .labelStyle(.titleAndIcon)
                 }
                 
                 GroupBox("Font Size") {

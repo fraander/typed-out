@@ -22,15 +22,11 @@ struct SavedSheet: View {
                 
                 Spacer()
                 
-                Button  {
-                    dismiss()
-                } label: {
-                    Label("Done", systemImage: "checkmark")
-                        .labelStyle(.titleAndIcon)
-                        .font(.system(.body, design: .monospaced, weight: .bold))
-                }
-                .buttonStyle(.bordered)
-                .tint(Color.mint)
+                TypedOutButton(
+                    "Done",
+                    icon: "checkmark",
+                    tintColor: .mint
+                ) { dismiss() }
             }
             .padding()
             
@@ -43,59 +39,65 @@ struct SavedSheet: View {
                 Spacer()
             } else {
                 List($saved.items, editActions: [.delete]) { $item in
-                    HStack {
-                        Text(item.text)
-                        
-                        Spacer()
-                        
-                        Text(item.date
-                            .formatted(
-                                date: Date.FormatStyle.DateStyle.omitted,
-                                time: Date.FormatStyle.TimeStyle.shortened)
-                             )
-                        .foregroundColor(Color.secondary)
-                        .font(.system(.caption, design: .monospaced, weight: .regular))
-                        .italic()
-                    }
+                    SavedRow(item: item)
                 }
                 
                 Divider()
                 
                 HStack {
-                    Button {
-                        saved.items = []
-                        
-                        SavedVM.save(items: saved.items) { result in
-                            switch result {
-                                case .failure(let e):
-                                    print(e.localizedDescription)
-                                case .success(_):
-                                    print("Saved the clear")
-                            }
-                        }
-                    } label: {
-                        Label("Clear", systemImage: "trash").labelStyle(.titleAndIcon)
-                            .font(.system(.body, design: .monospaced, weight: .bold))
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(Color.pink)
+                    TypedOutButton("Clear", icon: "trash", tintColor: .pink, action: clearButtonAction)
                     
                     Spacer()
                 }
                 .padding()
             }
         }
-        .onChange(of: scenePhase) { phase in
-            if (phase == .inactive) {
-                SavedVM.save(items: saved.items) { result in
-                    switch result {
-                        case .failure(let e):
-                            print(e.localizedDescription)
-                        case .success(_):
-                            print("Saved \(saved.items.count) item(s)")
-                    }
-                }
+        .onChange(of: scenePhase) { closeAction() }
+    }
+    
+    func closeAction() {
+        SavedVM.save(items: saved.items) { result in
+            switch result {
+                case .failure(let e):
+                    print(e.localizedDescription)
+                case .success(_):
+                    print("Saved \(saved.items.count) item(s)")
             }
+        }
+    }
+    
+    func clearButtonAction() {
+        saved.items = []
+        
+        SavedVM.save(items: saved.items) { result in
+            switch result {
+                case .failure(let e):
+                    print(e.localizedDescription)
+                case .success(_):
+                    print("Saved successfully")
+            }
+        }
+    }
+}
+
+struct SavedRow: View {
+    
+    let item: SaveItem
+    
+    var body: some View {
+        HStack {
+            Text(item.text)
+            
+            Spacer()
+            
+            Text(item.date
+                .formatted(
+                    date: Date.FormatStyle.DateStyle.omitted,
+                    time: Date.FormatStyle.TimeStyle.shortened)
+                 )
+            .foregroundColor(Color.secondary)
+            .font(.system(.caption, design: .monospaced, weight: .regular))
+            .italic()
         }
     }
 }

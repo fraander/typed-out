@@ -20,53 +20,46 @@ struct EditingField: View {
             .focused($focus)
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
-                    
-                    Button {
-                        if settings.saveMode {
-                            let newItem = SaveItem(text: vm.text)
-                            saved.items.append(newItem)
-                            
-                            SavedVM.save(items: saved.items) { result in
-                                switch result {
-                                    case .failure(let e):
-                                        print(e.localizedDescription)
-                                    case .success(_):
-                                        print("Saved on purpose. \(saved.items.count) items(s)")
-                                }
-                            }
-                        }
-                        
-                        vm.text = ""
-                    } label: {
-                        Label(settings.saveMode ? "Save & Clear" : "Erase",
-                              systemImage: settings.saveMode ? "tray.and.arrow.down" : "pencil.and.outline")
-                        .labelStyle(.titleAndIcon)
-                        .font(.system(.body, design: .monospaced, weight: .bold))
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(Color.pink)
+                    TypedOutButton(
+                        settings.saveMode ? "Save & Clear" : "Erase",
+                        icon: settings.saveMode ? "tray.and.arrow.down" : "pencil.and.outline",
+                        tintColor: .pink,
+                        action: saveAndClearAction
+                    )
                     .disabled(vm.text.isEmpty)
                     
                     Spacer()
                     
-                    Button {
+                    TypedOutButton("Done", icon: "keyboard.chevron.compact.down", tintColor: .secondary) {
                         focus = false
-                    } label: {
-                        Label("Done", systemImage: "keyboard.chevron.compact.down")
-                            .labelStyle(.iconOnly)
-                            .font(.system(.body, design: .monospaced, weight: .bold))
                     }
-                    .buttonStyle(.bordered)
-                    .tint(Color.secondary)
                 }
             }
             .task { focus = true }
-            .onChange(of: vm.focus) { newValue in
+            .onChange(of: vm.focus) { _, newValue in
                 focus = newValue
             }
-            .onChange(of: focus) { newValue in
+            .onChange(of: focus) { _, newValue in
                 vm.focus = newValue
             }
+    }
+    
+    func saveAndClearAction() {
+        if settings.saveMode {
+            let newItem = SaveItem(text: vm.text)
+            saved.items.append(newItem)
+            
+            SavedVM.save(items: saved.items) { result in
+                switch result {
+                    case .failure(let e):
+                        print(e.localizedDescription)
+                    case .success(_):
+                        print("Saved on purpose. \(saved.items.count) items(s)")
+                }
+            }
+        }
+        
+        vm.text = ""
     }
 }
 

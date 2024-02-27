@@ -27,76 +27,16 @@ struct ContentView: View {
                     Color(uiColor: UIColor.systemBackground)
                     
                     ScrollView {
-                        
                         EditingField(saved: saved, vm: vm, settings: settings)
                     }
                 }
                 .onTapGesture {
                     vm.focus = true
                 }
-                
-                // TODO: make the quick responses do stuff
-                /*
-                 HStack(spacing: 4) {
-                 
-                 Button { } label: {
-                 Label("Yes", systemImage: "hand.thumbsup.fill")
-                 .labelStyle(.iconOnly)
-                 }
-                 .buttonStyle(.bordered)
-                 .tint(Color.mint)
-                 
-                 Button { } label: {
-                 Text("Haha")
-                 .font(.system(.body, design: .monospaced, weight: .bold))
-                 .italic()
-                 }
-                 .buttonStyle(.bordered)
-                 .tint(Color.cyan)
-                 
-                 Button { } label: {
-                 Label("Huh?", systemImage: "questionmark")
-                 .labelStyle(.iconOnly)
-                 .font(.system(.headline, design: .monospaced, weight: .bold))
-                 }
-                 .buttonStyle(.bordered)
-                 .tint(Color.indigo)
-                 
-                 Button { } label: {
-                 Label("No", systemImage: "hand.thumbsdown.fill")
-                 .labelStyle(.iconOnly)
-                 }
-                 .buttonStyle(.bordered)
-                 .tint(Color.pink)
-                 }
-                 */
             }
             .padding()
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        vm.sheet = .saved
-                    } label: {
-                        Label("Saved", systemImage: "tray.and.arrow.down")
-                            .labelStyle(.titleAndIcon)
-                            .font(.system(.body, design: .monospaced, weight: .bold))
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(settings.saveMode ? Color.cyan : Color.gray)
-                    .foregroundColor(Color.cyan)
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        vm.sheet = .settings
-                    } label: {
-                        Label("Settings", systemImage: "gear")
-                            .labelStyle(.titleAndIcon)
-                            .font(.system(.body, design: .monospaced, weight: .bold))
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(Color.indigo)
-                }
+                ToolbarHandler().displayToolbar(vm: vm, settings: settings)
             }
         }
         .sheet(item: $vm.sheet) { sheetType in
