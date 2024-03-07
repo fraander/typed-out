@@ -11,16 +11,13 @@ struct ContentView: View {
     
     // TODO: feature-plan
     /**
-     * 1. Refactor reused components to custom views and view modifiers
-     * 2. Save settings / themes
-     * 3. Fix rotation warnings
+     * 1. Save settings / themes
+     * 2. Fix rotation warnings
      */
     
     @EnvironmentObject var vm: TextVM
     @EnvironmentObject var settings: SettingsVM
     @EnvironmentObject var saved: SavedVM
-    
-    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         NavigationView {

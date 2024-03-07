@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct typed_outApp: App {
+struct TypedOutApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
