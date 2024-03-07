@@ -34,39 +34,5 @@ struct TypedOutButton: View {
 
 struct ToolbarHandler {
     
-    @ToolbarContentBuilder
-        func displayToolbar(vm: TextVM, settings: SettingsVM) -> some ToolbarContent {
-            ToolbarItem(placement: .navigationBarLeading) {
-                TypedOutButton(
-                    "Saved",
-                    icon: "tray.and.arrow.down",
-                    tintColor: (settings.saveMode ? Color.cyan : Color.gray)
-                ) {
-                    vm.sheet = .saved
-                }
-                .labelStyle(.iconOnly)
-            }
-            
-            ToolbarItem(placement: .navigationBarLeading) {
-                TypedOutButton(
-                    "Settings",
-                    icon: "gear",
-                    tintColor: .indigo
-                ) {
-                    vm.sheet = .settings
-                }
-                .labelStyle(.iconOnly)
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                TypedOutButton(
-                    "Full Screen",
-                    icon: "rectangle.landscape.rotate",
-                    tintColor: .orange
-                ) {
-                    //vm.sheet = .settings
-                }
-                .labelStyle(.titleAndIcon)
-            }
-        }
+    
 }

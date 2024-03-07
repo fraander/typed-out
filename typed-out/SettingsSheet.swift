@@ -26,30 +26,30 @@ struct SettingsSheet: View {
                         .labelStyle(.titleAndIcon)
                 }
                 
-                GroupBox("Font Size") {
-                    VStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20.0)
-                                .strokeBorder(.secondary, lineWidth: 2)
-                            
-                            Text("This is what your text will look like.")
-                                .font(.system(size: settings.textSize, weight: .medium, design: .rounded))
-                                .lineLimit(2)
-                                .padding(8)
-                        }
-                        .frame(height: 120)
-                        
-                        Slider(value: $settings.textSize, in: 12...96)
-                            .tint(Color.indigo)
-                    }
-                }
+//                GroupBox("Font Size") {
+//                    VStack {
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: 20.0)
+//                                .strokeBorder(.secondary, lineWidth: 2)
+//                            
+//                            Text("This is what your text will look like.")
+//                                .font(.system(size: settings.textSize, weight: .medium, design: .rounded))
+//                                .lineLimit(2)
+//                                .padding(8)
+//                        }
+//                        .frame(height: 120)
+//                        
+//                        Slider(value: $settings.textSize, in: 12...96)
+//                            .tint(Color.indigo)
+//                    }
+//                }
                 
-                //                GroupBox("Colors") {
-                //                    VStack {
-                //                        ColorPicker("Text Color", selection: <#T##Binding<Color>#>, supportsOpacity: false)
-                //                        ColorPicker("Background Color", selection: <#T##Binding<Color>#>, supportsOpacity: false)
-                //                    }
-                //                }
+                                GroupBox("Colors") {
+                                    VStack {
+                                        ColorPicker("Text Color", selection: $settings.textColor, supportsOpacity: false)
+                                        ColorPicker("Background Color", selection: $settings.backgroundColor, supportsOpacity: false)
+                                    }
+                                }
                 
                 GroupBox {
                     Toggle(isOn: $settings.saveMode) {

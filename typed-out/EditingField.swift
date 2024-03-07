@@ -13,27 +13,31 @@ struct EditingField: View {
     @ObservedObject var settings: SettingsVM
     @FocusState var focus: Bool
     
+    var toolbar: some ToolbarContent {
+        ToolbarItemGroup(placement: .keyboard) {
+            TypedOutButton(
+                settings.saveMode ? "Save & Clear" : "Erase",
+                icon: settings.saveMode ? "tray.and.arrow.down" : "pencil.and.outline",
+                tintColor: .pink,
+                action: saveAndClearAction
+            )
+            .disabled(vm.text.isEmpty)
+            
+            Spacer()
+            
+            TypedOutButton("Done", icon: "keyboard.chevron.compact.down", tintColor: .secondary) {
+                focus = false
+            }
+        }
+    }
+    
     var body: some View {
         TextField("Type here ...", text: $vm.text, axis: .vertical)
             .font(.system(size: settings.textSize, weight: .medium, design: .rounded))
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .focused($focus)
             .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    TypedOutButton(
-                        settings.saveMode ? "Save & Clear" : "Erase",
-                        icon: settings.saveMode ? "tray.and.arrow.down" : "pencil.and.outline",
-                        tintColor: .pink,
-                        action: saveAndClearAction
-                    )
-                    .disabled(vm.text.isEmpty)
-                    
-                    Spacer()
-                    
-                    TypedOutButton("Done", icon: "keyboard.chevron.compact.down", tintColor: .secondary) {
-                        focus = false
-                    }
-                }
+                toolbar
             }
             .task { focus = true }
             .onChange(of: vm.focus) { _, newValue in
@@ -63,10 +67,8 @@ struct EditingField: View {
     }
 }
 
-struct EditingField_Previews: PreviewProvider {
-    static var previews: some View {
-        EditingField(saved: SavedVM(), vm: TextVM(), settings: SettingsVM())
-            .padding()
-            .previewLayout(.sizeThatFits)
-    }
+#Preview {
+    EditingField(saved: SavedVM(), vm: TextVM(), settings: SettingsVM())
+        .padding()
+        .previewLayout(.sizeThatFits)
 }
