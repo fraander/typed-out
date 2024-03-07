@@ -52,15 +52,6 @@ struct EditingField: View {
         if settings.saveMode {
             let newItem = SaveItem(text: vm.text)
             saved.items.append(newItem)
-            
-            SavedVM.save(items: saved.items) { result in
-                switch result {
-                    case .failure(let e):
-                        print(e.localizedDescription)
-                    case .success(_):
-                        print("Saved on purpose. \(saved.items.count) items(s)")
-                }
-            }
         }
         
         vm.text = ""

@@ -52,31 +52,10 @@ struct SavedSheet: View {
                 .padding()
             }
         }
-        .onChange(of: scenePhase) { closeAction() }
-    }
-    
-    func closeAction() {
-        SavedVM.save(items: saved.items) { result in
-            switch result {
-                case .failure(let e):
-                    print(e.localizedDescription)
-                case .success(_):
-                    print("Saved \(saved.items.count) item(s)")
-            }
-        }
     }
     
     func clearButtonAction() {
         saved.items = []
-        
-        SavedVM.save(items: saved.items) { result in
-            switch result {
-                case .failure(let e):
-                    print(e.localizedDescription)
-                case .success(_):
-                    print("Saved successfully")
-            }
-        }
     }
 }
 
@@ -99,11 +78,5 @@ struct SavedRow: View {
             .font(.system(.caption, design: .monospaced, weight: .regular))
             .italic()
         }
-    }
-}
-
-struct SavedSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        SavedSheet(saved: SavedVM([SaveItem(text: "first"), SaveItem(text: "second"), SaveItem(text: "this is a really long message that is supposed to show what happens when you just keep typing and don't stop. It looks liek this actually scales just fine for now.")]), settings: SettingsVM())
     }
 }

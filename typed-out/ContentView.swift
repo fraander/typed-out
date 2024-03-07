@@ -16,9 +16,10 @@ struct ContentView: View {
      * 3. Fix rotation warnings
      */
     
-    @StateObject var vm = TextVM()
-    @StateObject var settings = SettingsVM()
-    @StateObject var saved = SavedVM()
+    @EnvironmentObject var vm: TextVM
+    @EnvironmentObject var settings: SettingsVM
+    @EnvironmentObject var saved: SavedVM
+    
     @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
@@ -44,26 +45,6 @@ struct ContentView: View {
                 SettingsSheet(settings: settings).presentationDetents([.medium, .large])
             case SheetType.saved:
                 SavedSheet(saved: saved, settings: settings).presentationDetents([.medium, .large])
-            }
-        }
-        .task {
-            SavedVM.load { result in
-                switch result {
-                case .failure(let error):
-                    print(error.localizedDescription)
-                case .success(let items):
-                    saved.items = items
-                }
-            }
-        }
-        .onChange(of: scenePhase) { old, new in
-            SavedVM.save(items: saved.items) { result in
-                switch result {
-                case .failure(let e):
-                    print(e.localizedDescription)
-                case .success(_):
-                    print("Saved \(saved.items.count) item(s)")
-                }
             }
         }
     }

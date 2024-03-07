@@ -10,7 +10,11 @@ import Combine
 
 class SavedVM: ObservableObject, Equatable, Codable {
     
-    @Published var items: [SaveItem]
+    @Published var items: [SaveItem] {
+        didSet {
+            SavedVM.save(saved: self)
+        }
+    }
     
     static let defaultsKey = "saved"
     
