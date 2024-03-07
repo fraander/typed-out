@@ -21,70 +21,19 @@ struct ContentView: View {
     @StateObject var saved = SavedVM()
     @Environment(\.scenePhase) private var scenePhase
     
-    @State private var currentZoom = 1.0
-    
-    var overlay: some View {
-        ZStack {
-            settings.backgroundColor
-                .ignoresSafeArea(.all)
-            Text(vm.text)
-                .font(.system(size: 1024, weight: .medium, design: .rounded))
-                .minimumScaleFactor(0.001)
-                .foregroundColor(settings.textColor)
-        }
-        .onAppear {
-            AppDelegate.orientationLock = UIInterfaceOrientationMask.landscapeLeft
-            UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
-            UINavigationController.attemptRotationToDeviceOrientation()
-        }
-        .onDisappear {
-            DispatchQueue.main.async {
-                AppDelegate.orientationLock = UIInterfaceOrientationMask.portrait
-                UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-                UINavigationController.attemptRotationToDeviceOrientation()
-            }
-        }
-    }
-    
     var body: some View {
         NavigationView {
             VStack {
                 ZStack {
                     Color(uiColor: UIColor.systemBackground)
-                    
-                    ScrollView {
-                        EditingField(saved: saved, vm: vm, settings: settings)
-                    }
+                    ScrollView { EditingField(saved: saved, vm: vm, settings: settings) }
                 }
-                .onTapGesture {
-                    vm.focus = true
-                }
+                .onTapGesture { vm.focus = true }
             }
             .padding()
             .overlay {
                 if vm.overlay {
-                    ZStack {
-                        settings.backgroundColor.ignoresSafeArea(.all)
-                        overlay
-                            .scaleEffect(currentZoom)
-                            .gesture(
-                                MagnifyGesture()
-                                    .onChanged { value in
-                                        if value.magnification < 1 {
-                                            currentZoom = value.magnification
-                                        } else {
-                                            print("no", value.magnification)
-                                        }
-                                    }
-                                    .onEnded { value in
-                                        print("ENDED", currentZoom)
-                                        if (currentZoom < 0.8) {
-                                            toggleOverlay()
-                                        }
-                                        currentZoom = 1.0
-                                    }
-                            )
-                    }
+                    PresenterOverlay()
                 }
             }
             .toolbar { toolbar }
@@ -153,17 +102,12 @@ struct ContentView: View {
                     icon: "rectangle.landscape.rotate",
                     tintColor: .orange
                 ) {
-                    toggleOverlay()
+                    vm.toggleOverlay()
                 }
                 .labelStyle(.titleAndIcon)
                 .disabled(vm.text.isEmpty)
             }
         }
-    }
-    
-    func toggleOverlay() {
-        vm.overlay.toggle()
-        vm.focus = !vm.overlay
     }
 }
 

@@ -11,7 +11,21 @@ import SwiftUI
 #if os(iOS)
 import UIKit
 typealias PlatformColor = UIColor
-extension Color {
+extension Color: Codable {
+    public init(from decoder: Decoder) throws {
+        
+        decoder.unkeyedContainer()
+        
+        decodeColor(from: <#T##Data#>)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        <#code#>
+    }
+    
+    
+    
+    
     init(platformColor: PlatformColor) {
         self.init(uiColor: platformColor)
     }
@@ -37,14 +51,6 @@ func encodeColor() throws -> Data {
 }
 
 func decodeColor(from data: Data) throws -> Color {
-//    guard let platformColor = try NSKeyedUnarchiver
-//            .unarchiveTopLevelObjectWithData(data) as? PlatformColor
-//        else {
-//            throw DecodingError.wrongType
-//        }
-//    
-    
-    
     guard let platformColor = try NSKeyedUnarchiver.unarchivedObject(ofClass: PlatformColor.self, from: data) else {
         throw DecodingError.wrongType
     }

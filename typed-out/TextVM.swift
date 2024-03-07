@@ -18,4 +18,9 @@ class TextVM: ObservableObject {
     @Published var sheet: SheetType?
     @Published var focus: Bool = true
     @Published var overlay: Bool = false
+    
+    func toggleOverlay() {
+        overlay.toggle()
+        focus = !overlay
+    }
 }
