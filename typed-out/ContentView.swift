@@ -11,8 +11,8 @@ struct ContentView: View {
     
     // TODO: feature-plan
     /**
-     * 1. Color customization/themes
-     * 2. Refactor reused components to custom views and view modifiers
+     * 1. Refactor reused components to custom views and view modifiers
+     * 2. Save settings / themes
      * 3. Fix rotation warnings
      */
     
