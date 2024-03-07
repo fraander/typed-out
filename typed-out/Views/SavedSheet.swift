@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SavedSheet: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.scenePhase) private var scenePhase
-    @ObservedObject var saved: SavedVM
-    @ObservedObject var settings: SettingsVM
+    @EnvironmentObject var saved: SavedVM
+    @EnvironmentObject var settings: SettingsVM
+    @EnvironmentObject var text: TextVM
     
     var body: some View {
         VStack(spacing: 0) {
@@ -38,14 +38,38 @@ struct SavedSheet: View {
                     .padding()
                 Spacer()
             } else {
-                List($saved.items, editActions: [.delete]) { $item in
+                List($saved.items) { $item in
                     SavedRow(item: item)
+                        .swipeActions(edge: .leading) {
+                            Button("Overload",
+                                systemImage: "tray.and.arrow.up.fill"
+                            ) { text.text = item.text }
+                                .tint(.cyan)
+                            
+                            Button("Load",
+                                systemImage: "tray.and.arrow.up"
+                            ) {
+                                if !text.text.isEmpty && text.text != item.text {
+                                    saved.items.append(SaveItem(text: text.text))
+                                }
+                                text.text = item.text
+                            }
+                                .tint(.secondary)
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button("Remove",
+                                systemImage: "trash.fill"
+                            ) { saved.items.removeAll { si in
+                                si.id == item.id
+                            } }
+                                .tint(.pink)
+                        }
                 }
                 
                 Divider()
                 
                 HStack {
-                    TypedOutButton("Clear", icon: "trash", tintColor: .pink, action: clearButtonAction)
+                    TypedOutButton("Clear", icon: "trash", tintColor: .pink, action: { saved.items = [] })
                     
                     Spacer()
                 }
@@ -53,30 +77,5 @@ struct SavedSheet: View {
             }
         }
     }
-    
-    func clearButtonAction() {
-        saved.items = []
-    }
 }
 
-struct SavedRow: View {
-    
-    let item: SaveItem
-    
-    var body: some View {
-        HStack {
-            Text(item.text)
-            
-            Spacer()
-            
-            Text(item.date
-                .formatted(
-                    date: Date.FormatStyle.DateStyle.omitted,
-                    time: Date.FormatStyle.TimeStyle.shortened)
-                 )
-            .foregroundColor(Color.secondary)
-            .font(.system(.caption, design: .monospaced, weight: .regular))
-            .italic()
-        }
-    }
-}

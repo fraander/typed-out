@@ -13,6 +13,7 @@
 		BD067DD0288E011400704A87 /* EditingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCF288E011400704A87 /* EditingField.swift */; };
 		BD067DD2288E012B00704A87 /* TextVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DD1288E012B00704A87 /* TextVM.swift */; };
 		BD3BDC952B9A788B008662D8 /* PresenterOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BDC942B9A788B008662D8 /* PresenterOverlay.swift */; };
+		BD3BDC9F2B9A7CC7008662D8 /* SavedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BDC9E2B9A7CC7008662D8 /* SavedRow.swift */; };
 		BD4B14452890A82C00D2FABE /* SavedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B14442890A82C00D2FABE /* SavedVM.swift */; };
 		BD642BF12B8E872D008CC435 /* TypedOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD642BF02B8E872D008CC435 /* TypedOutButton.swift */; };
 		BD92F641288D36CA001D142D /* TypedOutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92F640288D36CA001D142D /* TypedOutApp.swift */; };
@@ -31,6 +32,7 @@
 		BD067DCF288E011400704A87 /* EditingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingField.swift; sourceTree = "<group>"; };
 		BD067DD1288E012B00704A87 /* TextVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVM.swift; sourceTree = "<group>"; };
 		BD3BDC942B9A788B008662D8 /* PresenterOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterOverlay.swift; sourceTree = "<group>"; };
+		BD3BDC9E2B9A7CC7008662D8 /* SavedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRow.swift; sourceTree = "<group>"; };
 		BD4B14442890A82C00D2FABE /* SavedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVM.swift; sourceTree = "<group>"; };
 		BD642BF02B8E872D008CC435 /* TypedOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedOutButton.swift; sourceTree = "<group>"; };
 		BD92F63D288D36CA001D142D /* typed-out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "typed-out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				BD642BF02B8E872D008CC435 /* TypedOutButton.swift */,
+				BD3BDC9E2B9A7CC7008662D8 /* SavedRow.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				BD067DD0288E011400704A87 /* EditingField.swift in Sources */,
 				BD067DD2288E012B00704A87 /* TextVM.swift in Sources */,
 				BD9410FB2B9A185600A101BA /* CodableColor.swift in Sources */,
+				BD3BDC9F2B9A7CC7008662D8 /* SavedRow.swift in Sources */,
 				BDB5BCB5288F26E30061344B /* SaveItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

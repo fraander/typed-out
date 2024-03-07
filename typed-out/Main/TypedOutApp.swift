@@ -12,7 +12,7 @@ struct TypedOutApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    @StateObject var vm = TextVM()
+    @StateObject var vm = TextVM.load()
     @StateObject var settings = SettingsVM()
     @StateObject var saved = SavedVM.load()
     

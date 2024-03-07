@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsSheet: View {
     
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var settings: SettingsVM
+    @EnvironmentObject var settings: SettingsVM
     
     var body: some View {
         ScrollView {
@@ -71,6 +71,7 @@ struct SettingsSheet: View {
 
 struct SettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsSheet(settings: SettingsVM())
+        SettingsSheet()
+            .environmentObject(SettingsVM())
     }
 }

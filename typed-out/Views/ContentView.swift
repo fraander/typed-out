@@ -39,9 +39,9 @@ struct ContentView: View {
         .sheet(item: $vm.sheet) { sheetType in
             switch sheetType {
             case SheetType.settings:
-                SettingsSheet(settings: settings).presentationDetents([.medium, .large])
+                SettingsSheet().presentationDetents([.medium, .large])
             case SheetType.saved:
-                SavedSheet(saved: saved, settings: settings).presentationDetents([.medium, .large])
+                SavedSheet().presentationDetents([.medium, .large])
             }
         }
     }
