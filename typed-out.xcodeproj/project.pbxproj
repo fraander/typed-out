@@ -87,16 +87,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		BD3BDC9A2B9A7AB3008662D8 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				BD92F640288D36CA001D142D /* TypedOutApp.swift */,
-				BD9410F82B9A113B00A101BA /* AppDelegate.swift */,
-				BD3BDCA02B9A7F2D008662D8 /* TODO.md */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		BD3BDC9B2B9A7AD6008662D8 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +134,9 @@
 		BD92F63F288D36CA001D142D /* typed-out */ = {
 			isa = PBXGroup;
 			children = (
-				BD3BDC9A2B9A7AB3008662D8 /* Main */,
+				BD3BDCA02B9A7F2D008662D8 /* TODO.md */,
+				BD92F640288D36CA001D142D /* TypedOutApp.swift */,
+				BD9410F82B9A113B00A101BA /* AppDelegate.swift */,
 				BD3BDC992B9A7AA3008662D8 /* Models */,
 				BD3BDC982B9A7A95008662D8 /* ViewModels */,
 				BD3BDC962B9A7A6F008662D8 /* Views */,
