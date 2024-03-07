@@ -33,6 +33,7 @@
 		BD067DD1288E012B00704A87 /* TextVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVM.swift; sourceTree = "<group>"; };
 		BD3BDC942B9A788B008662D8 /* PresenterOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterOverlay.swift; sourceTree = "<group>"; };
 		BD3BDC9E2B9A7CC7008662D8 /* SavedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRow.swift; sourceTree = "<group>"; };
+		BD3BDCA02B9A7F2D008662D8 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		BD4B14442890A82C00D2FABE /* SavedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVM.swift; sourceTree = "<group>"; };
 		BD642BF02B8E872D008CC435 /* TypedOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedOutButton.swift; sourceTree = "<group>"; };
 		BD92F63D288D36CA001D142D /* typed-out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "typed-out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +92,7 @@
 			children = (
 				BD92F640288D36CA001D142D /* TypedOutApp.swift */,
 				BD9410F82B9A113B00A101BA /* AppDelegate.swift */,
+				BD3BDCA02B9A7F2D008662D8 /* TODO.md */,
 			);
 			path = Main;
 			sourceTree = "<group>";
