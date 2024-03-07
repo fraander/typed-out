@@ -19,7 +19,7 @@
 		BD92F645288D36CB001D142D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD92F644288D36CB001D142D /* Assets.xcassets */; };
 		BD92F649288D36CB001D142D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD92F648288D36CB001D142D /* Preview Assets.xcassets */; };
 		BD9410F92B9A113B00A101BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9410F82B9A113B00A101BA /* AppDelegate.swift */; };
-		BD9410FB2B9A185600A101BA /* CodableColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9410FA2B9A185600A101BA /* CodableColors.swift */; };
+		BD9410FB2B9A185600A101BA /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9410FA2B9A185600A101BA /* CodableColor.swift */; };
 		BDB5BCB5288F26E30061344B /* SaveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5BCB4288F26E30061344B /* SaveItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,7 @@
 		BD92F646288D36CB001D142D /* typed_out.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = typed_out.entitlements; sourceTree = "<group>"; };
 		BD92F648288D36CB001D142D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD9410F82B9A113B00A101BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD9410FA2B9A185600A101BA /* CodableColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColors.swift; sourceTree = "<group>"; };
+		BD9410FA2B9A185600A101BA /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
 		BDB5BCB4288F26E30061344B /* SaveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +75,7 @@
 				BD067DD1288E012B00704A87 /* TextVM.swift */,
 				BD067DCD288E00F000704A87 /* SavedSheet.swift */,
 				BD067DCB288DF17000704A87 /* SettingsSheet.swift */,
-				BD9410FA2B9A185600A101BA /* CodableColors.swift */,
+				BD9410FA2B9A185600A101BA /* CodableColor.swift */,
 				BD92F640288D36CA001D142D /* typed_outApp.swift */,
 				BD92F642288D36CA001D142D /* ContentView.swift */,
 				BD9410F82B9A113B00A101BA /* AppDelegate.swift */,
@@ -179,7 +179,7 @@
 				BD642BF12B8E872D008CC435 /* ToolbarView.swift in Sources */,
 				BD067DD0288E011400704A87 /* EditingField.swift in Sources */,
 				BD067DD2288E012B00704A87 /* TextVM.swift in Sources */,
-				BD9410FB2B9A185600A101BA /* CodableColors.swift in Sources */,
+				BD9410FB2B9A185600A101BA /* CodableColor.swift in Sources */,
 				BDB5BCB5288F26E30061344B /* SaveItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

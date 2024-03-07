@@ -8,23 +8,12 @@
 import Foundation
 import SwiftUI
 
+#warning("Finish the color encoding/decoding so that settings can be saved and loaded")
+
 #if os(iOS)
 import UIKit
 typealias PlatformColor = UIColor
-extension Color: Codable {
-    public init(from decoder: Decoder) throws {
-        
-        decoder.unkeyedContainer()
-        
-        decodeColor(from: <#T##Data#>)
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        <#code#>
-    }
-    
-    
-    
+extension Color {
     
     init(platformColor: PlatformColor) {
         self.init(uiColor: platformColor)
