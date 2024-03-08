@@ -10,7 +10,6 @@ import SwiftUI
 struct TypedOutButton: View {
     
     let tintColor: Color
-//    let labelStyle: some LabelStyle = DefaultLabelStyle()
     let title: LocalizedStringKey
     let icon: String
     let action: (() -> Void)
@@ -24,15 +23,9 @@ struct TypedOutButton: View {
     
     var body: some View {
         Button(title, systemImage: icon, action: action)
-//            .labelStyle(labelStyle)
             .font(.system(.body, design: .monospaced, weight: .bold))
             .buttonStyle(.bordered)
             .tint(tintColor)
     }
-    
-}
-
-struct ToolbarHandler {
-    
     
 }

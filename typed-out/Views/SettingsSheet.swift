@@ -39,6 +39,38 @@ struct SettingsSheet: View {
                     .tint(Color.indigo)
                 }
                 
+                GroupBox("Colors") {
+                    
+                    let cgTextColor = Binding {
+                        settings.textColor.cgColor
+                    } set: { newValue in
+                        settings.textColor = CodableColor(cgColor: newValue)
+                    }
+                    
+                    let cgBackgroundColor = Binding {
+                        settings.backgroundColor.cgColor
+                    } set: { newValue in
+                        settings.backgroundColor = CodableColor(cgColor: newValue)
+                    }
+
+                    
+                    VStack {
+                        ColorPicker("Text Color", selection: cgTextColor, supportsOpacity: false)
+                        ColorPicker("Background Color", selection: cgBackgroundColor, supportsOpacity: false)
+                    }
+                    
+                    ScrollView(.horizontal) {
+                        HStack {
+                            Image(systemName: "circlebadge.2.fill")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(
+                                    .blue,
+                                    .red
+                                )
+                        }
+                    }
+                }
+                
                 GroupBox("Typing Area Font Size") {
                     VStack {
                         ZStack {
@@ -66,29 +98,8 @@ struct SettingsSheet: View {
                             ) {
                                 settings.textSize = SettingsVM.defaultTextSize
                             }
-//                            .labelStyle(.iconOnly)
+                            .symbolEffect(.bounce, value: settings.textSize == SettingsVM.defaultTextSize)
                         }
-                    }
-                }
-                
-                GroupBox("Colors") {
-                    
-                    let cgTextColor = Binding {
-                        settings.textColor.cgColor
-                    } set: { newValue in
-                        settings.textColor = CodableColor(cgColor: newValue)
-                    }
-                    
-                    let cgBackgroundColor = Binding {
-                        settings.backgroundColor.cgColor
-                    } set: { newValue in
-                        settings.backgroundColor = CodableColor(cgColor: newValue)
-                    }
-
-                    
-                    VStack {
-                        ColorPicker("Text Color", selection: cgTextColor, supportsOpacity: false)
-                        ColorPicker("Background Color", selection: cgBackgroundColor, supportsOpacity: false)
                     }
                 }
             }
