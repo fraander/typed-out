@@ -16,16 +16,18 @@ struct PresenterOverlay: View {
     
     var body: some View {
         ZStack {
-            
-            settings.backgroundColor.ignoresSafeArea(.all)
+            Color(cgColor: settings.backgroundColor.cgColor)
+                .ignoresSafeArea(.all)
             
             ZStack {
-                settings.backgroundColor
+                Color(cgColor: settings.backgroundColor.cgColor)
                     .ignoresSafeArea(.all)
                 Text(vm.text)
                     .font(.system(size: 1024, weight: .medium, design: .rounded))
                     .minimumScaleFactor(0.001)
-                    .foregroundColor(settings.textColor)
+                    .foregroundColor(
+                        Color(cgColor: settings.textColor.cgColor)
+                    )
             }
             .onAppear {
                 AppDelegate.orientationLock = UIInterfaceOrientationMask.landscapeLeft

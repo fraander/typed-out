@@ -1,51 +1,59 @@
 //
-//  CodableColors.swift
+//  CGColor+Codable.swift
 //  typed-out
 //
-//  Created by Frank Anderson on 3/7/24.
+//  Created by Frank Anderson on 3/8/24.
 //
 
-import Foundation
 import SwiftUI
 
-#warning("Finish the color encoding/decoding so that settings can be saved and loaded")
-
-#if os(iOS)
-import UIKit
-typealias PlatformColor = UIColor
-extension Color {
+struct CodableColor: Codable {
+    let cgColor: CGColor
     
-    init(platformColor: PlatformColor) {
-        self.init(uiColor: platformColor)
+    static let white = CodableColor(cgColor: .white)
+    static let black = CodableColor(cgColor: .black)
+    
+    enum CodingKeys: String, CodingKey {
+        case colorSpace
+        case components
+    }
+    
+    init(cgColor: CGColor) {
+        self.cgColor = cgColor
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let colorSpace = try container.decode(String.self, forKey: .colorSpace)
+        let components = try container.decode([CGFloat].self, forKey: .components)
+        
+        guard
+            let cgColorSpace = CGColorSpace(name: colorSpace as CFString),
+            let cgColor = CGColor(
+                colorSpace: cgColorSpace, components: components
+            )
+        else {
+            throw CodingError.wrongData
+        }
+        
+        self.cgColor = cgColor
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        guard
+            let colorSpace = cgColor.colorSpace?.name,
+            let components = cgColor.components
+        else {
+            throw CodingError.wrongData
+        }
+        
+        try container.encode(colorSpace as String, forKey: .colorSpace)
+        try container.encode(components, forKey: .components)
     }
 }
-#elseif os(macOS)
-import AppKit
-typealias PlatformColor = NSColor
-extension Color {
-    init(platformColor: PlatformColor) {
-        self.init(nsColor: platformColor)
-    }
-}
-#endif
 
-let color = Color(.sRGB, red: 0, green: 0, blue: 1, opacity: 1)
-
-func encodeColor() throws -> Data {
-    let platformColor = PlatformColor(color)
-    return try NSKeyedArchiver.archivedData(
-        withRootObject: platformColor,
-        requiringSecureCoding: true
-    )
-}
-
-func decodeColor(from data: Data) throws -> Color {
-    guard let platformColor = try NSKeyedUnarchiver.unarchivedObject(ofClass: PlatformColor.self, from: data) else {
-        throw DecodingError.wrongType
-    }
-    return Color(platformColor: platformColor)
-}
-
-enum DecodingError: Error {
-    case wrongType
+enum CodingError: Error {
+    case wrongColor
+    case wrongData
 }

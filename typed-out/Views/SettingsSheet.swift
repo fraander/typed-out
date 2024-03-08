@@ -26,31 +26,6 @@ struct SettingsSheet: View {
                         .labelStyle(.titleAndIcon)
                 }
                 
-//                GroupBox("Font Size") {
-//                    VStack {
-//                        ZStack {
-//                            RoundedRectangle(cornerRadius: 20.0)
-//                                .strokeBorder(.secondary, lineWidth: 2)
-//                            
-//                            Text("This is what your text will look like.")
-//                                .font(.system(size: settings.textSize, weight: .medium, design: .rounded))
-//                                .lineLimit(2)
-//                                .padding(8)
-//                        }
-//                        .frame(height: 120)
-//                        
-//                        Slider(value: $settings.textSize, in: 12...96)
-//                            .tint(Color.indigo)
-//                    }
-//                }
-                
-                                GroupBox("Colors") {
-                                    VStack {
-                                        ColorPicker("Text Color", selection: $settings.textColor, supportsOpacity: false)
-                                        ColorPicker("Background Color", selection: $settings.backgroundColor, supportsOpacity: false)
-                                    }
-                                }
-                
                 GroupBox {
                     Toggle(isOn: $settings.saveMode) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -62,6 +37,59 @@ struct SettingsSheet: View {
                         }
                     }
                     .tint(Color.indigo)
+                }
+                
+                GroupBox("Typing Area Font Size") {
+                    VStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20.0)
+                                .strokeBorder(.secondary, lineWidth: 2)
+                            
+                            Text("This is what your text will look like.")
+                                .font(.system(size: settings.textSize, weight: .medium, design: .rounded))
+                                .lineLimit(2)
+                                .padding(8)
+                        }
+                        .frame(height: 120)
+                        
+                        HStack {
+                            Slider(value: $settings.textSize, in: 12...96, step: 1.0)
+                                .tint(Color.indigo)
+                            
+//                            Text("\(settings.textSize, specifier: "%.0f")pt")
+//                                .font(.system(.caption, design: .monospaced, weight: .medium))
+                            
+                            TypedOutButton(
+                                "\(settings.textSize, specifier: "%.0f")pt",
+                                icon: "textformat.size",
+                                tintColor: settings.textSize == SettingsVM.defaultTextSize ? .secondary : .indigo
+                            ) {
+                                settings.textSize = SettingsVM.defaultTextSize
+                            }
+//                            .labelStyle(.iconOnly)
+                        }
+                    }
+                }
+                
+                GroupBox("Colors") {
+                    
+                    let cgTextColor = Binding {
+                        settings.textColor.cgColor
+                    } set: { newValue in
+                        settings.textColor = CodableColor(cgColor: newValue)
+                    }
+                    
+                    let cgBackgroundColor = Binding {
+                        settings.backgroundColor.cgColor
+                    } set: { newValue in
+                        settings.backgroundColor = CodableColor(cgColor: newValue)
+                    }
+
+                    
+                    VStack {
+                        ColorPicker("Text Color", selection: cgTextColor, supportsOpacity: false)
+                        ColorPicker("Background Color", selection: cgBackgroundColor, supportsOpacity: false)
+                    }
                 }
             }
             .padding()
