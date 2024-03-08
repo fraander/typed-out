@@ -14,10 +14,26 @@ enum SheetType: Identifiable, Codable, Equatable {
 }
 
 class TextVM: ObservableObject, Codable {
-    @Published var text: String
-    @Published var sheet: SheetType?
-    @Published var focus: Bool
-    @Published var overlay: Bool
+    @Published var text: String {
+        didSet {
+            TextVM.save(self)
+        }
+    }
+    @Published var sheet: SheetType? {
+        didSet {
+            TextVM.save(self)
+        }
+    }
+    @Published var focus: Bool {
+        didSet {
+            TextVM.save(self)
+        }
+    }
+    @Published var overlay: Bool {
+        didSet {
+            TextVM.save(self)
+        }
+    }
     
     func toggleOverlay() {
         overlay.toggle()
@@ -26,7 +42,7 @@ class TextVM: ObservableObject, Codable {
     
     static let defaultsKey = "text"
     
-    static func save(textVM: TextVM) {
+    static func save(_ textVM: TextVM) {
         if let encoded = try? JSONEncoder().encode(textVM) {
             UserDefaults.standard.set(encoded, forKey: defaultsKey)
         } else {

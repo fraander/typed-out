@@ -17,14 +17,48 @@ class SettingsVM: ObservableObject, Codable {
     
     static let defaultTextSize = 18.0
     
-    @Published var textSize = SettingsVM.defaultTextSize
-    @Published var saveMode = true
-    @Published var textColor: CodableColor = .white
-    @Published var backgroundColor: CodableColor = .black
+    @Published var textSize = SettingsVM.defaultTextSize {
+        didSet {
+            SettingsVM.save(self)
+        }
+    }
+    @Published var saveMode = true {
+        didSet {
+            SettingsVM.save(self)
+        }
+    }
+    @Published var textColor: CodableColor = .white {
+        didSet {
+            SettingsVM.save(self)
+        }
+    }
+    @Published var backgroundColor: CodableColor = .black {
+        didSet {
+            SettingsVM.save(self)
+        }
+    }
+    @Published var themes: [Theme] = [] {
+        didSet {
+            SettingsVM.save(self)
+        }
+    }
+    
+    func addTheme() {
+        
+        if (!themes.contains {
+            $0.textColor == textColor
+            && $0.backgroundColor == backgroundColor
+        }) {
+            themes.insert(
+                Theme(textColor: textColor,
+                      backgroundColor: backgroundColor),
+                at: 0)
+        }
+    }
     
     static let defaultsKey = "settings"
     
-    static func save(settings: SettingsVM) {
+    static func save(_ settings: SettingsVM) {
         if let encoded = try? JSONEncoder().encode(settings) {
             UserDefaults.standard.set(encoded, forKey: defaultsKey)
         } else {
@@ -57,6 +91,7 @@ class SettingsVM: ObservableObject, Codable {
         self.saveMode = true
         self.textColor = .white
         self.backgroundColor = .black
+        self.themes = []
     }
     
     required init(from decoder: Decoder) throws {
@@ -65,6 +100,7 @@ class SettingsVM: ObservableObject, Codable {
         self.saveMode = try container.decode(Bool.self, forKey: .saveMode)
         self.textColor = try container.decode(CodableColor.self, forKey: .textColor)
         self.backgroundColor = try container.decode(CodableColor.self, forKey: .backgroundColor)
+        self.themes = try container.decode([Theme].self, forKey: .themes)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -74,6 +110,7 @@ class SettingsVM: ObservableObject, Codable {
         try container.encode(saveMode, forKey: .saveMode)
         try container.encode(textColor, forKey: .textColor)
         try container.encode(backgroundColor, forKey: .backgroundColor)
+        try container.encode(themes, forKey: .themes)
     }
     
     enum CodingKeys: CodingKey{
@@ -81,5 +118,6 @@ class SettingsVM: ObservableObject, Codable {
         case saveMode
         case textColor
         case backgroundColor
+        case themes
     }
 }

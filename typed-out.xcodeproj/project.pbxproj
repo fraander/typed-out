@@ -23,6 +23,8 @@
 		BD9410F92B9A113B00A101BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9410F82B9A113B00A101BA /* AppDelegate.swift */; };
 		BDB5BCB5288F26E30061344B /* SaveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5BCB4288F26E30061344B /* SaveItem.swift */; };
 		BDCE0D152B9BAD7200167E27 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE0D142B9BAD7200167E27 /* CodableColor.swift */; };
+		BDCE0D182B9BBBEE00167E27 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE0D172B9BBBEE00167E27 /* Theme.swift */; };
+		BDCE0D1A2B9BC46B00167E27 /* ThemeIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE0D192B9BC46B00167E27 /* ThemeIconButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		BD9410F82B9A113B00A101BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDB5BCB4288F26E30061344B /* SaveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveItem.swift; sourceTree = "<group>"; };
 		BDCE0D142B9BAD7200167E27 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
+		BDCE0D172B9BBBEE00167E27 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		BDCE0D192B9BC46B00167E27 /* ThemeIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeIconButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			children = (
 				BDCE0D142B9BAD7200167E27 /* CodableColor.swift */,
 				BDB5BCB4288F26E30061344B /* SaveItem.swift */,
+				BDCE0D172B9BBBEE00167E27 /* Theme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 		BD3BDC9C2B9A7AFE008662D8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BDCE0D192B9BC46B00167E27 /* ThemeIconButton.swift */,
 				BD642BF02B8E872D008CC435 /* TypedOutButton.swift */,
 				BD3BDC9E2B9A7CC7008662D8 /* SavedRow.swift */,
 			);
@@ -233,10 +239,12 @@
 				BD92F641288D36CA001D142D /* TypedOutApp.swift in Sources */,
 				BDCE0D152B9BAD7200167E27 /* CodableColor.swift in Sources */,
 				BD4B14452890A82C00D2FABE /* SavedVM.swift in Sources */,
+				BDCE0D1A2B9BC46B00167E27 /* ThemeIconButton.swift in Sources */,
 				BD067DCE288E00F000704A87 /* SavedSheet.swift in Sources */,
 				BD642BF12B8E872D008CC435 /* TypedOutButton.swift in Sources */,
 				BD067DD0288E011400704A87 /* EditingField.swift in Sources */,
 				BD067DD2288E012B00704A87 /* TextVM.swift in Sources */,
+				BDCE0D182B9BBBEE00167E27 /* Theme.swift in Sources */,
 				BD3BDC9F2B9A7CC7008662D8 /* SavedRow.swift in Sources */,
 				BDB5BCB5288F26E30061344B /* SaveItem.swift in Sources */,
 			);

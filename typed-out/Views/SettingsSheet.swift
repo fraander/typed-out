@@ -56,20 +56,43 @@ struct SettingsSheet: View {
                     
                     VStack {
                         ColorPicker("Text Color", selection: cgTextColor, supportsOpacity: false)
+                            .font(.system(.caption, design: .monospaced))
+
                         ColorPicker("Background Color", selection: cgBackgroundColor, supportsOpacity: false)
+                            .font(.system(.caption, design: .monospaced))
+                    }
+                    .padding(.bottom)
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Themes")
+                            .font(.headline)
+                        Text("Long press a theme to remove it from the list.")
+                            .font(.system(.caption, design: .monospaced))
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            Image(systemName: "circlebadge.2.fill")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(
-                                    .blue,
-                                    .red
-                                )
+                            ThemeIconButton(action: settings.addTheme, textColor: .white, backgroundColor: .indigo, outlineColor: .white, icon: "plus", iconSize: 0.6)
+                                .symbolEffect(.bounce, value: settings.themes.count)
+                            
+                            ForEach(settings.themes) { theme in
+                                ThemeIconButton(theme: theme) {
+                                    settings.textColor = theme.textColor
+                                    settings.backgroundColor = theme.backgroundColor
+                                }
+                                .contextMenu {
+                                    Button("Remove Theme", systemImage: "trash.fill", role: .destructive) {
+                                        settings.themes = settings.themes.filter { t in t.id != theme.id }
+                                    }
+                                }
+                            }
                         }
+                        .padding(5)
                     }
                 }
+                
+                
                 
                 GroupBox("Typing Area Font Size") {
                     VStack {
@@ -87,9 +110,6 @@ struct SettingsSheet: View {
                         HStack {
                             Slider(value: $settings.textSize, in: 12...96, step: 1.0)
                                 .tint(Color.indigo)
-                            
-//                            Text("\(settings.textSize, specifier: "%.0f")pt")
-//                                .font(.system(.caption, design: .monospaced, weight: .medium))
                             
                             TypedOutButton(
                                 "\(settings.textSize, specifier: "%.0f")pt",
