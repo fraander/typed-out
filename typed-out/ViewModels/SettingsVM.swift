@@ -77,7 +77,7 @@ class SettingsVM: ObservableObject, Codable {
             if let decoded = try? JSONDecoder().decode(SettingsVM.self, from: data) {
                 return decoded
             } else {
-                print("Error decoding")
+                print("Error decoding SettingsVM")
             }
         } else {
             print("Not found in defaults")

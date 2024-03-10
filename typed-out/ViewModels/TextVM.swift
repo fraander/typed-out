@@ -61,7 +61,7 @@ class TextVM: ObservableObject, Codable {
             if let decoded = try? JSONDecoder().decode(TextVM.self, from: data) {
                 return decoded
             } else {
-                print("Error decoding")
+                print("Error decoding TextVM")
             }
         } else {
             print("Not found in defaults")
@@ -80,7 +80,7 @@ class TextVM: ObservableObject, Codable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.text = try container.decode(String.self, forKey: .text)
-        self.sheet = try container.decode(SheetType.self, forKey: .sheet)
+        self.sheet = try container.decodeIfPresent(SheetType.self, forKey: .sheet)
         self.focus = try container.decode(Bool.self, forKey: .focus)
         self.overlay = try container.decode(Bool.self, forKey: .overlay)
     }

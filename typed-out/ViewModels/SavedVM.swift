@@ -37,7 +37,7 @@ class SavedVM: ObservableObject, Equatable, Codable {
             if let decoded = try? JSONDecoder().decode(SavedVM.self, from: data) {
                 return decoded
             } else {
-                print("Error decoding")
+                print("Error decoding SavedVM")
             }
         } else {
             print("Not found in defaults")
