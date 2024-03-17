@@ -9,4 +9,4 @@ The app for typing things out when you can't talk but still want to chat.
 </p>
 
 ## Terms of Use & Privacy
-Data is stored in Documents, so none of your data is shared with the developer. Use the app for its intended purpose.
+Data is stored only on your device, so none of your data is shared with the developer. Use the app for its intended purposes only.
