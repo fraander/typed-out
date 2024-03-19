@@ -53,7 +53,7 @@ struct ContentView: View {
                 .labelStyle(.iconOnly)
                 .opacity(vm.overlay ? 0 : 100)
                 .disabled(vm.overlay)
-                .symbolEffect(.bounce, value: vm.sheet == .saved)
+//                .symbolEffect(.bounce, value: vm.sheet == .saved)
             }
             
             ToolbarItem(placement: .navigationBarLeading) {
@@ -67,7 +67,7 @@ struct ContentView: View {
                 .labelStyle(.iconOnly)
                 .opacity(vm.overlay ? 0 : 100)
                 .disabled(vm.overlay)
-                .symbolEffect(.bounce, value: vm.sheet == .settings)
+//                .symbolEffect(.bounce, value: vm.sheet == .settings)
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
