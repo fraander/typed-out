@@ -8,5 +8,8 @@ The app for typing things out when you can't talk but still want to chat.
   <img src="https://user-images.githubusercontent.com/57777918/181246969-787ee450-a6f4-4049-8157-7901864b0b42.PNG" height="300" />
 </p>
 
+## Support
+For support, please [create a new Issue](https://github.com/fraander/typed-out/issues/new) in this repository.
+
 ## Terms of Use & Privacy
 Data is stored only on your device, so none of your data is shared with the developer. Use the app for its intended purposes only.
