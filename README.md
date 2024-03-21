@@ -9,7 +9,7 @@ The app for typing things out when you can't talk but still want to chat.
 </p>
 
 ## Support
-For support, please [create a new Issue](https://github.com/fraander/typed-out/issues/new) in this repository.
+For support, please [create a new Issue](https://github.com/fraander/typed-out/issues/new) in this repository or email fra.ander+support@icloud.com.
 
 ## Terms of Use & Privacy
 Data is stored only on your device, so none of your data is shared with the developer. Use the app for its intended purposes only.
