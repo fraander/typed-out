@@ -25,6 +25,7 @@
 		BDCE0D152B9BAD7200167E27 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE0D142B9BAD7200167E27 /* CodableColor.swift */; };
 		BDCE0D182B9BBBEE00167E27 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE0D172B9BBBEE00167E27 /* Theme.swift */; };
 		BDCE0D1A2B9BC46B00167E27 /* ThemeIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE0D192B9BC46B00167E27 /* ThemeIconButton.swift */; };
+		BDE244B82BB38AB500120D5D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BDE244B72BB38AB500120D5D /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		BDCE0D142B9BAD7200167E27 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
 		BDCE0D172B9BBBEE00167E27 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BDCE0D192B9BC46B00167E27 /* ThemeIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeIconButton.swift; sourceTree = "<group>"; };
+		BDE244B72BB38AB500120D5D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				BD3BDCA02B9A7F2D008662D8 /* TODO.md */,
+				BDE244B72BB38AB500120D5D /* PrivacyInfo.xcprivacy */,
 				BD92F640288D36CA001D142D /* TypedOutApp.swift */,
 				BD9410F82B9A113B00A101BA /* AppDelegate.swift */,
 				BD3BDC992B9A7AA3008662D8 /* Models */,
@@ -219,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE244B82BB38AB500120D5D /* PrivacyInfo.xcprivacy in Resources */,
 				BD92F649288D36CB001D142D /* Preview Assets.xcassets in Resources */,
 				BD92F645288D36CB001D142D /* Assets.xcassets in Resources */,
 			);
