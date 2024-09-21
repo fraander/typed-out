@@ -29,6 +29,7 @@ struct PresenterOverlay: View {
                         Color(cgColor: settings.textColor.cgColor)
                     )
             }
+            #if os(iOS)
             .onAppear {
                 AppDelegate.orientationLock = UIInterfaceOrientationMask.landscapeLeft
                 UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
@@ -41,6 +42,7 @@ struct PresenterOverlay: View {
                     UINavigationController.attemptRotationToDeviceOrientation()
                 }
             }
+            #endif
             .scaleEffect(currentZoom)
             .gesture(
                 MagnifyGesture()

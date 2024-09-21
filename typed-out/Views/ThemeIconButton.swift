@@ -70,6 +70,8 @@ struct ThemeIconButton: View {
             .font(.system(size: 32))
         }
         .buttonStyle(ThemeIconButtonStyle())
+        #if os(iOS)
         .contentShape(.contextMenuPreview, .circle)
+        #endif
     }
 }

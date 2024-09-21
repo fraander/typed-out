@@ -5,6 +5,7 @@
 //  Created by Frank Anderson on 3/7/24.
 //
 
+#if os(iOS)
 import Foundation
 import UIKit
 
@@ -15,3 +16,4 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return AppDelegate.orientationLock
     }
 }
+#endif

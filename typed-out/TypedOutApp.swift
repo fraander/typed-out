@@ -10,7 +10,9 @@ import SwiftUI
 @main
 struct TypedOutApp: App {
     
+    #if os(iOS)
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    #endif
     
     @StateObject var vm = TextVM.load()
     @StateObject var settings = SettingsVM.load()
