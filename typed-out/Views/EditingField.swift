@@ -61,5 +61,4 @@ struct EditingField: View {
 #Preview {
     EditingField(saved: SavedVM(), vm: TextVM(), settings: SettingsVM())
         .padding()
-        .previewLayout(.sizeThatFits)
 }
