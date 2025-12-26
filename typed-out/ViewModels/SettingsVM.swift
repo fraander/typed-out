@@ -7,37 +7,39 @@
 
 import Foundation
 import SwiftUI
+import Observation
 
 extension CGColor {
     static let white = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
     static let black = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
 }
 
+@Observable
 class SettingsVM: ObservableObject, Codable {
     
     static let defaultTextSize = 18.0
     
-    @Published var textSize = SettingsVM.defaultTextSize {
+    var textSize = SettingsVM.defaultTextSize {
         didSet {
             SettingsVM.save(self)
         }
     }
-    @Published var saveMode = true {
+    var saveMode = true {
         didSet {
             SettingsVM.save(self)
         }
     }
-    @Published var textColor: CodableColor = .white {
+    var textColor: CodableColor = .white {
         didSet {
             SettingsVM.save(self)
         }
     }
-    @Published var backgroundColor: CodableColor = .black {
+    var backgroundColor: CodableColor = .black {
         didSet {
             SettingsVM.save(self)
         }
     }
-    @Published var themes: [Theme] = [] {
+    var themes: [Theme] = [] {
         didSet {
             SettingsVM.save(self)
         }

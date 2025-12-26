@@ -107,14 +107,16 @@ struct ContentView: View {
     var toolbar: some ToolbarContent {
         Group {
             #if os(iOS)
-            ToolbarItem(placement:
-                    .navigationBarLeading
-            ) {
-                savedButton
-            }
-            
-            ToolbarItem(placement: .navigationBarLeading) {
-                settingsButton
+            if !vm.overlay {
+                ToolbarItem(placement:
+                        .navigationBarLeading
+                ) {
+                    savedButton
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    settingsButton
+                }
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {

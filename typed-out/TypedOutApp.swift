@@ -14,9 +14,9 @@ struct TypedOutApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     #endif
     
-    @StateObject var vm = TextVM.load()
-    @StateObject var settings = SettingsVM.load()
-    @StateObject var saved = SavedVM.load()
+    @State var vm = TextVM.load()
+    @State var settings = SettingsVM.load()
+    @State var saved = SavedVM.load()
     
     var body: some Scene {
         WindowGroup {

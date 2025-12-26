@@ -7,10 +7,12 @@
 
 import Foundation
 import Combine
+import Observation
 
+@Observable
 class SavedVM: ObservableObject, Equatable, Codable {
     
-    @Published var items: [SaveItem] {
+    var items: [SaveItem] {
         didSet {
             SavedVM.save(saved: self)
         }

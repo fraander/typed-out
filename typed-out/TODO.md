@@ -1,2 +1,0 @@
-#  TODOs
-- [ ] Fix rotation warnings

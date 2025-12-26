@@ -67,4 +67,5 @@ struct PresenterOverlay: View {
 
 #Preview {
     PresenterOverlay()
+        
 }

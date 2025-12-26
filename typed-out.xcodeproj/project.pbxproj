@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01F1F6CC2EFF387B00C76BA4 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 01F1F6CB2EFF387B00C76BA4 /* AppIcon.icon */; };
 		BD067DCA288DE96700704A87 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DC9288DE96700704A87 /* SettingsVM.swift */; };
 		BD067DCC288DF17000704A87 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCB288DF17000704A87 /* SettingsSheet.swift */; };
 		BD067DCE288E00F000704A87 /* SavedSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCD288E00F000704A87 /* SavedSheet.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01F1F6CB2EFF387B00C76BA4 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		BD067DC9288DE96700704A87 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		BD067DCB288DF17000704A87 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		BD067DCD288E00F000704A87 /* SavedSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSheet.swift; sourceTree = "<group>"; };
@@ -35,7 +37,6 @@
 		BD067DD1288E012B00704A87 /* TextVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVM.swift; sourceTree = "<group>"; };
 		BD3BDC942B9A788B008662D8 /* PresenterOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterOverlay.swift; sourceTree = "<group>"; };
 		BD3BDC9E2B9A7CC7008662D8 /* SavedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRow.swift; sourceTree = "<group>"; };
-		BD3BDCA02B9A7F2D008662D8 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		BD4B14442890A82C00D2FABE /* SavedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVM.swift; sourceTree = "<group>"; };
 		BD642BF02B8E872D008CC435 /* TypedOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedOutButton.swift; sourceTree = "<group>"; };
 		BD92F63D288D36CA001D142D /* typed-out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "typed-out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,13 +141,13 @@
 		BD92F63F288D36CA001D142D /* typed-out */ = {
 			isa = PBXGroup;
 			children = (
-				BD3BDCA02B9A7F2D008662D8 /* TODO.md */,
 				BD92F640288D36CA001D142D /* TypedOutApp.swift */,
 				BD9410F82B9A113B00A101BA /* AppDelegate.swift */,
 				BD3BDC992B9A7AA3008662D8 /* Models */,
 				BD3BDC982B9A7A95008662D8 /* ViewModels */,
 				BD3BDC962B9A7A6F008662D8 /* Views */,
 				BD92F644288D36CB001D142D /* Assets.xcassets */,
+				01F1F6CB2EFF387B00C76BA4 /* AppIcon.icon */,
 				BD92F646288D36CB001D142D /* typed_out.entitlements */,
 				BD92F647288D36CB001D142D /* Preview Content */,
 			);
@@ -189,7 +190,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					BD92F63C288D36CA001D142D = {
 						CreatedOnToolsVersion = 14.0;
@@ -221,6 +222,7 @@
 			files = (
 				BD92F649288D36CB001D142D /* Preview Assets.xcassets in Resources */,
 				BD92F645288D36CB001D142D /* Assets.xcassets in Resources */,
+				01F1F6CC2EFF387B00C76BA4 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +291,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6ZT823VK2T;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -309,6 +312,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -350,6 +354,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6ZT823VK2T;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -363,6 +368,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -375,12 +381,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "typed-out/typed_out.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"typed-out/Preview Content\"";
-				DEVELOPMENT_TEAM = 6ZT823VK2T;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Typed Out";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -393,7 +400,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "frank.typed-out";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -413,12 +420,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "typed-out/typed_out.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"typed-out/Preview Content\"";
-				DEVELOPMENT_TEAM = 6ZT823VK2T;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Typed Out";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -431,7 +439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "frank.typed-out";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

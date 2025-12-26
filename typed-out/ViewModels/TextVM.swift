@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Observation
 
 enum SheetType: Identifiable, Codable, Equatable {
     var id: Self { self }
@@ -13,23 +14,24 @@ enum SheetType: Identifiable, Codable, Equatable {
     case settings, saved
 }
 
+@Observable
 class TextVM: ObservableObject, Codable {
-    @Published var text: String {
+    var text: String {
         didSet {
             TextVM.save(self)
         }
     }
-    @Published var sheet: SheetType? {
+    var sheet: SheetType? {
         didSet {
             TextVM.save(self)
         }
     }
-    @Published var focus: Bool {
+    var focus: Bool {
         didSet {
             TextVM.save(self)
         }
     }
-    @Published var overlay: Bool {
+    var overlay: Bool {
         didSet {
             TextVM.save(self)
         }
