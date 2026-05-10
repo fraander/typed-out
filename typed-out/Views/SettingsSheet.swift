@@ -12,6 +12,33 @@ struct SettingsSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var settings: SettingsVM
     
+    @Namespace var namespace
+    
+    func checkIsSelectedTheme(textColor: Color, backgroundColor: Color) -> Bool {
+        
+        guard let tc = textColor.cgColor, let bc = backgroundColor.cgColor else {
+            print("Could not convert color to Theme to check selection status.")
+            return false
+        }
+        
+        return checkIsSelectedTheme(
+            theme: Theme(
+                textColor: CodableColor(cgColor: tc),
+                backgroundColor: CodableColor(cgColor: bc)
+            )
+        )
+    }
+    
+    func checkIsSelectedTheme(theme: Theme) -> Bool {
+        return settings.backgroundColor == theme.backgroundColor && settings.textColor == theme.textColor
+    }
+    
+    func checkIfAnySelected() -> Bool {
+        settings.themes.contains(where: {
+            checkIsSelectedTheme(theme: $0)
+        })
+    }
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -73,13 +100,26 @@ struct SettingsSheet: View {
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            ThemeIconButton(action: settings.addTheme, textColor: .white, backgroundColor: .indigo, outlineColor: .white, icon: "plus", iconSize: 0.6)
+                            ThemeIconButton(
+                                action: settings.addTheme,
+                                textColor: .white,
+                                backgroundColor: .indigo,
+                                outlineColor: .white,
+                                icon: "plus",
+                                iconSize: 0.6,
+                                isSelected: false,
+                                namespaceID: namespace
+                            )
                                 .symbolEffect(.bounce, value: settings.themes.count)
+                                .disabled(checkIfAnySelected())
+                                .opacity(checkIfAnySelected() ? 0.5 : 1)
                             
                             ForEach(settings.themes) { theme in
-                                ThemeIconButton(theme: theme) {
-                                    settings.textColor = theme.textColor
-                                    settings.backgroundColor = theme.backgroundColor
+                                ThemeIconButton(theme: theme, isSelected: checkIsSelectedTheme(theme: theme), namespaceID: namespace) {
+                                    withAnimation(.default.speed(2)) {
+                                        settings.textColor = theme.textColor
+                                        settings.backgroundColor = theme.backgroundColor
+                                    }
                                 }
                                 .contextMenu {
                                     Button("Remove Theme", systemImage: "trash.fill", role: .destructive) {
