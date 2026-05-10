@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01F1F6CC2EFF387B00C76BA4 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 01F1F6CB2EFF387B00C76BA4 /* AppIcon.icon */; };
+		0174DA252FB1304D002669AA /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 0174DA242FB1304D002669AA /* AppIcon.icon */; };
 		BD067DCA288DE96700704A87 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DC9288DE96700704A87 /* SettingsVM.swift */; };
 		BD067DCC288DF17000704A87 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCB288DF17000704A87 /* SettingsSheet.swift */; };
 		BD067DCE288E00F000704A87 /* SavedSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD067DCD288E00F000704A87 /* SavedSheet.swift */; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01F1F6CB2EFF387B00C76BA4 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		0174DA242FB1304D002669AA /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		BD067DC9288DE96700704A87 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		BD067DCB288DF17000704A87 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		BD067DCD288E00F000704A87 /* SavedSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSheet.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 				BD3BDC982B9A7A95008662D8 /* ViewModels */,
 				BD3BDC962B9A7A6F008662D8 /* Views */,
 				BD92F644288D36CB001D142D /* Assets.xcassets */,
-				01F1F6CB2EFF387B00C76BA4 /* AppIcon.icon */,
+				0174DA242FB1304D002669AA /* AppIcon.icon */,
 				BD92F646288D36CB001D142D /* typed_out.entitlements */,
 				BD92F647288D36CB001D142D /* Preview Content */,
 			);
@@ -222,7 +222,7 @@
 			files = (
 				BD92F649288D36CB001D142D /* Preview Assets.xcassets in Resources */,
 				BD92F645288D36CB001D142D /* Assets.xcassets in Resources */,
-				01F1F6CC2EFF387B00C76BA4 /* AppIcon.icon in Resources */,
+				0174DA252FB1304D002669AA /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
